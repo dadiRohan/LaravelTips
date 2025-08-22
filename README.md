@@ -381,7 +381,7 @@ You can create custom error pages by creating Blade views in the resources/views
 For example, create a 404.blade.php file for handling 404 errors.
 
 
-###Laravel 2025 Notes
+### Laravel 2025 Notes
 1. Latest Version & Updates:
 Laravel continues to release regular updates; check laravel.com for the latest version and features.
 Improved performance, security, and developer experience in recent releases.
