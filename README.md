@@ -499,7 +499,7 @@ Eloquent ORM: Simplifies database operations.
 | 81. | php artisan  permission:create-role    |     Create a role |
 | 82. | php artisan  permission:show        |        Show a table of roles and permissions per guard |
 | 83. | php artisan  queue:batches-table     |       Create a migration for the batches database table |
-| 84. | php artisan  queue:checkup                  Ensure that the queue listener is running. |
+| 84. | php artisan  queue:checkup   |               Ensure that the queue listener is running. |
 | 85. | php artisan  queue:clear | Delete all of the jobs from the specified queue |
 | 86. | php artisan  queue:failed |                   List all of the failed queue jobs |
 | 87. | php artisan  queue:failed-table       |      Create a migration for the failed queue jobs database table       |
