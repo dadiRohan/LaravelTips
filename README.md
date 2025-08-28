@@ -411,3 +411,127 @@ Eloquent ORM: Simplifies database operations.
 6. Best Practices:Use environment variables for configuration. Follow PSR standards and Laravel conventions. Write tests for critical features. Use queues and jobs for heavy tasks.
 7. Deployment: Use tools like Laravel Forge, Envoyer, or Docker for deployment. Optimize with caching, config caching, and route caching.
 8. Community & Resources: Extensive documentation and tutorials. Active community on forums, Discord, and GitHub. Increased use of Laravel with modern frontend frameworks (React, Vue, Inertia.js). More focus on API development and microservices. Enhanced support for serverless and cloud-native deployments.
+
+### Artisan Important Commands and description:
+
+| Sr.No. | Command | Description |
+| --- | --- | --- |
+| 1. | php artisan  clear-compiled |                Remove the compiled class file |
+| 2. | php artisan  completion |                    Dump the shell completion script |
+| 3. | php artisan  db |  Start a new database CLI session
+| 4. | php artisan  down |Put the application into maintenance / demo mode |
+| 5. | php artisan  env | Display the current framework environment |
+| 6. | php artisan  help |Display help for a command |
+| 7. | php artisan  inspire |                       Display an inspiring quote |
+| 8. | php artisan  list |List commands |
+| 9. | php artisan  migrate |                       Run the database migrations |
+| 10. | php artisan  optimize |                      Cache the framework bootstrap files |
+| 11. | php artisan  serve |                         Serve the application on the PHP development server |
+| 12. | php artisan  socket-connection |             web message socket connection service |
+| 13. | php artisan  test |Run the application tests |
+| 14. | php artisan  tinker |                        Interact with your application |
+| 15. | php artisan  ui |  Swap the front-end scaffolding for the application |
+| 16. | php artisan  up |  Bring the application out of maintenance mode |
+| 17. | php artisan  Billing:sendBillingEmail |      Send Email to admin for due Invoice |
+| 18. | php artisan  Invoice:generateInvoice  |      For generating monthly invoice |
+| 19. | php artisan  Registration:sendToCRM   |      Send Regitration to CRM if any failed |
+| 20. | php artisan  auth:clear-resets |             Flush expired password reset tokens |
+| 21. | php artisan  cache:clear |                   Flush the application cache |
+| 22. | php artisan  cache:forget |                  Remove an item from the cache |
+| 23. | php artisan  cache:table | Create a migration for the cache database table |
+| 24. | php artisan  config:cache |                   Create a cache file for faster configuration loading |
+| 25. | php artisan  config:clear |                   Remove the configuration cache file |
+| 26. | php artisan  danube:bayz | Bays 101 Inventory Cron |
+| 27. | php artisan  db:seed |     Seed the database with records |
+| 28. | php artisan  db:wipe |     Drop all tables, views, and types |
+| 29. | php artisan  event:cache | Discover and cache the application's events and listeners         |
+| 30. | php artisan  event:clear | Clear all cached events and listeners |
+| 31. | php artisan  event:generate                 Generate the missing events and listeners based on registration   |
+| 32. | php artisan  event:list |  List the application's events and listeners |
+| 33. | php artisan  frontendscript:checkup         Ensure that the npm listener is running. |
+| 34. | php artisan  geoip:clear | Clear GeoIP cached locations. |
+| 35. | php artisan  geoip:update |                   Update GeoIP database files to the latest version |
+| 36. | php artisan  projectname:status |  projectname Project Status Update after 30 seconds (This is Custom Command) |
+| 37. | php artisan  projectname:statusfour |  projectname Project Status Update after 30 seconds (This is Custom Command) |
+| 38. | php artisan  projectname:statusthree | projectname Project Status Update after 30 seconds (This is Custom Command) |
+| 39. | php artisan  projectname:statustwo   |            projectname Project Status Update after 30 seconds (This is Custom Command) |
+| 40. | php artisan  key:generate |                   Set the application key |
+| 41. | php artisan  make:cast |   Create a new custom Eloquent cast class |
+| 42. | php artisan  make:channel |                   Create a new channel class |
+| 43. | php artisan  make:command |                   Create a new Artisan command |
+| 44. | php artisan  make:component |                Create a new view component class |
+| 45. | php artisan  make:controller |               Create a new controller class |
+| 46. | php artisan  make:event |  Create a new event class |
+| 47. | php artisan  make:exception |                Create a new custom exception class |
+| 48. | php artisan  make:factory |                   Create a new model factory |
+| 49. | php artisan  make:job |    Create a new job class |
+| 50. | php artisan  make:listener |                 Create a new event listener class |
+| 51. | php artisan  make:mail |   Create a new email class |
+| 52. | php artisan  make:middleware |                Create a new middleware class |
+| 53. | php artisan  make:migration  |               Create a new migration file |
+| 54. | php artisan  make:model |  Create a new Eloquent model class |
+| 55. | php artisan  make:notification |              Create a new notification class |
+| 56. | php artisan  make:observer |                 Create a new observer class |
+| 57. | php artisan  make:policy | Create a new policy class |
+| 58. | php artisan  make:provider  |                Create a new service provider class |
+| 59. | php artisan  make:request |                   Create a new form request class |
+| 60. | php artisan  make:resource |                 Create a new resource |
+| 61. | php artisan  make:rule |   Create a new validation rule |
+| 62. | php artisan  make:seeder | Create a new seeder class |
+| 63. | php artisan  make:test |   Create a new test class |
+| 64. | php artisan  migrate:fresh  |                Drop all tables and re-run all migrations |
+| 65. | php artisan  migrate:install |               Create the migration repository |
+| 66. | php artisan  migrate:refresh  |              Reset and re-run all migrations |
+| 67. | php artisan  migrate:reset     |             Rollback all database migrations |
+| 68. | php artisan  migrate:rollback   |            Rollback the last database migration |
+| 69. | php artisan  migrate:status      |           Show the status of each migration |
+| 70. | php artisan  model:prune | Prune models that are no longer needed |
+| 71. | php artisan  notifications:table |           Create a migration for the notifications table |
+| 72. | php artisan  optimize:clear      |           Remove the cached bootstrap files |
+| 73. | php artisan  package:discover     |          Rebuild the cached package manifest |
+| 74. | php artisan  passport:client       |         Create a client for issuing access tokens |
+| 75. | php artisan  passport:hash          |        Hash all of the existing secrets in the clients table |
+| 76. | php artisan  passport:install        |       Run the commands necessary to prepare Passport for use |
+| 77. | php artisan  passport:keys          |        Create the encryption keys for API authentication |
+| 78. | php artisan  passport:purge          |       Purge revoked and / or expired tokens and authentication codes    |
+| 79. | php artisan  permission:cache-reset   |      Reset the permission cache |
+| 80. | php artisan  permission:create-permission |   Create a permission |
+| 81. | php artisan  permission:create-role    |     Create a role |
+| 82. | php artisan  permission:show        |        Show a table of roles and permissions per guard |
+| 83. | php artisan  queue:batches-table     |       Create a migration for the batches database table |
+| 84. | php artisan  queue:checkup                  Ensure that the queue listener is running. |
+| 85. | php artisan  queue:clear | Delete all of the jobs from the specified queue |
+| 86. | php artisan  queue:failed |                   List all of the failed queue jobs |
+| 87. | php artisan  queue:failed-table       |      Create a migration for the failed queue jobs database table       |
+| 88. | php artisan  queue:flush | Flush all of the failed queue jobs |
+| 89. | php artisan  queue:forget |                   Delete a failed queue job |
+| 90. | php artisan  queue:listen |                   Listen to a given queue |
+| 91. | php artisan  queue:monitor  |                Monitor the size of the specified queues |
+| 92. | php artisan  queue:prune-batches |            Prune stale entries from the batches database |
+| 93. | php artisan  queue:prune-failed   |          Prune stale entries from the failed jobs table |
+| 94. | php artisan  queue:restart         |         Restart queue worker daemons after their current job |
+| 95. | php artisan  queue:retry | Retry a failed queue job |
+| 96. | php artisan  queue:retry-batch     |         Retry the failed jobs for a batch |
+| 97. | php artisan  queue:table | Create a migration for the queue jobs database table |
+| 98. | php artisan  queue:work |  Start processing jobs on the queue as a daemon |
+| 99. | php artisan  route:cache | Create a route cache file for faster route registration |
+| 100. | php artisan  route:clear | Remove the route cache file |
+| 101. | php artisan  route:list |  List all registered routes |
+| 102. | php artisan  sail:install |                   Install Laravel Sail's default Docker Compose file |
+| 103. | php artisan  sail:publish |                   Publish the Laravel Sail Docker files |
+| 104. | php artisan  sanctum:prune-expired |         Prune tokens expired for more than specified number of hours.     |
+| 105. | php artisan  schedule:clear-cache   |        Delete the cached mutex files created by scheduler |
+| 106. | php artisan  schedule:list  |                List the scheduled commands |
+| 107. | php artisan  schedule:run |                   Run the scheduled commands |
+| 108. | php artisan  schedule:test           |       Run a scheduled command |
+| 109. | php artisan  schedule:work            |      Start the schedule worker |
+| 110. | php artisan  schema:dump | Dump the given database schema |
+| 111. | php artisan  session:table |                 Create a migration for the session database table |
+| 112. | php artisan  storage:link |                   Create the symbolic links configured for the application |
+| 113. | php artisan  stub:publish |                   Publish all stubs that are available for customization |
+| 114. | php artisan  ui:auth |     Scaffold basic login and registration views and routes |
+| 115. | php artisan  ui:controllers           |      Scaffold the authentication controllers |
+| 116. | php artisan  uploads:clear            |      Clears the chunks upload directory. Deletes only .part objects.   |
+| 117. | php artisan  vendor:publish           |      Publish any publishable assets from vendor packages |
+| 118. | php artisan  view:cache |  Compile all of the application's Blade templates |
+| 119. | php artisan  view:clear |                     Clear all compiled view files |
