@@ -446,9 +446,9 @@ Eloquent ORM: Simplifies database operations.
 | 28. | php artisan  db:wipe |     Drop all tables, views, and types |
 | 29. | php artisan  event:cache | Discover and cache the application's events and listeners         |
 | 30. | php artisan  event:clear | Clear all cached events and listeners |
-| 31. | php artisan  event:generate                 Generate the missing events and listeners based on registration   |
+| 31. | php artisan  event:generate     |            Generate the missing events and listeners based on registration   |
 | 32. | php artisan  event:list |  List the application's events and listeners |
-| 33. | php artisan  frontendscript:checkup         Ensure that the npm listener is running. |
+| 33. | php artisan  frontendscript:checkup |        Ensure that the npm listener is running. |
 | 34. | php artisan  geoip:clear | Clear GeoIP cached locations. |
 | 35. | php artisan  geoip:update |                   Update GeoIP database files to the latest version |
 | 36. | php artisan  projectname:status |  projectname Project Status Update after 30 seconds (This is Custom Command) |
