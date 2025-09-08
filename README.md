@@ -530,22 +530,121 @@ Eloquent ORM: Simplifies database operations.
 ### Array Sorting without predefine function
 
 ```
-// $arrayList = [1,0,0,1,1,0,0,1,0,1,1];
-$arrayList = [21,31,2,5,6,8,1,23,56];
 
-function sortArr($arrayList){
-    for($i=0;$i<count($arrayList);$i++){
-        for($j=0;$j<count($arrayList) - 1;$j++){
-            if($arrayList[$j] > $arrayList[$j+1]){
-                $temp = $arrayList[$j+1];
-                $arrayList[$j+1] = $arrayList[$j];
-                $arrayList[$j]=$temp;
+/**
+ * Sorts an array using the Bubble Sort algorithm.
+ * Bubble Sort repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
+ *
+ * @param array $arr The array to sort
+ * @return array The sorted array
+ */
+function bubbleSortArray($arr) {
+    $n = count($arr);
+    for ($i = 0; $i < $n - 1; $i++) {
+        for ($j = 0; $j < $n - $i - 1; $j++) {
+            if ($arr[$j] > $arr[$j + 1]) {
+                $temp = $arr[$j];
+                $arr[$j] = $arr[$j + 1];
+                $arr[$j + 1] = $temp;
             }
         }
     }
-    return $arrayList;
+    return $arr;
 }
 
-print_r(sortArr($arrayList));
+/**
+ * Sorts an array using the Selection Sort algorithm.
+ * Selection Sort repeatedly finds the minimum element from the unsorted part and puts it at the beginning.
+ *
+ * @param array $arr The array to sort
+ * @return array The sorted array
+ */
+function selectionSortArray($arr) {
+    $n = count($arr);
+    for ($i = 0; $i < $n - 1; $i++) {
+        $min_idx = $i;
+        for ($j = $i + 1; $j < $n; $j++) {
+            if ($arr[$j] < $arr[$min_idx]) {
+                $min_idx = $j;
+            }
+        }
+        $temp = $arr[$min_idx];
+        $arr[$min_idx] = $arr[$i];
+        $arr[$i] = $temp;
+    }
+    return $arr;
+}
+
+/**
+ * Sorts an array using the Insertion Sort algorithm.
+ * Insertion Sort builds the sorted array one item at a time by comparing each new element to those already sorted.
+ *
+ * @param array $arr The array to sort
+ * @return array The sorted array
+ */
+function insertionSortArray($arr) {
+    $n = count($arr);
+    for ($i = 1; $i < $n; $i++) {
+        $key = $arr[$i];
+        $j = $i - 1;
+        while ($j >= 0 && $arr[$j] > $key) {
+            $arr[$j + 1] = $arr[$j];
+            $j--;
+        }
+        $arr[$j + 1] = $key;
+    }
+    return $arr;
+}
+
+/**
+ * Sorts an array using the Merge Sort algorithm.
+ * Merge Sort divides the array into halves, sorts each half, and merges them back together.
+ *
+ * @param array $arr The array to sort
+ * @return array The sorted array
+ */
+function mergeSortArray($arr) {
+    if (count($arr) <= 1) return $arr;
+    $mid = count($arr) / 2;
+    $left = array_slice($arr, 0, $mid);
+    $right = array_slice($arr, $mid);
+    return mergeArrays(mergeSortArray($left), mergeSortArray($right));
+}
+/**
+ * Helper function for mergeSortArray to merge two sorted arrays.
+ */
+function mergeArrays($left, $right) {
+    $result = [];
+    while (count($left) && count($right)) {
+        if ($left[0] < $right[0]) {
+            $result[] = array_shift($left);
+        } else {
+            $result[] = array_shift($right);
+        }
+    }
+    return array_merge($result, $left, $right);
+}
+
+/**
+ * Sorts an array using the Quick Sort algorithm.
+ * Quick Sort picks a pivot and partitions the array into elements less than and greater than the pivot, then sorts recursively.
+ *
+ * @param array $arr The array to sort
+ * @return array The sorted array
+ */
+function quickSortArray($arr) {
+    if (count($arr) < 2) return $arr;
+    $left = $right = [];
+    $pivot = $arr[0];
+    for ($i = 1; $i < count($arr); $i++) {
+        if ($arr[$i] < $pivot) {
+            $left[] = $arr[$i];
+        } else {
+            $right[] = $arr[$i];
+        }
+    }
+    return array_merge(quickSortArray($left), [$pivot], quickSortArray($right));
+}
+
 ```
 
