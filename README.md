@@ -525,3 +525,27 @@ Eloquent ORM: Simplifies database operations.
 | 107. | php artisan  vendor:publish           |      Publish any publishable assets from vendor packages |
 | 108. | php artisan  view:cache |  Compile all of the application's Blade templates |
 | 109. | php artisan  view:clear |                     Clear all compiled view files |
+
+
+### Array Sorting without Predefine function
+
+```
+// $arrayList = [1,0,0,1,1,0,0,1,0,1,1];
+$arrayList = [21,31,2,5,6,8,1,23,56];
+
+function sortArr($arrayList){
+    for($i=0;$i<count($arrayList);$i++){
+        for($j=0;$j<count($arrayList) - 1;$j++){
+            if($arrayList[$j] > $arrayList[$j+1]){
+                $temp = $arrayList[$j+1];
+                $arrayList[$j+1] = $arrayList[$j];
+                $arrayList[$j]=$temp;
+            }
+        }
+    }
+    return $arrayList;
+}
+
+print_r(sortArr($arrayList));
+```
+
