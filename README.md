@@ -648,3 +648,123 @@ function quickSortArray($arr) {
 
 ```
 
+
+### SOLID Principle
+
+1. S – Single Responsibility Principle (SRP)
+   - Each class or method should have one responsibility.
+   - In Laravel: Keep controllers thin, move business logic to Services, Repositories, or Jobs. Example: Don’t put validation, data access, and business logic all in a controller.
+  ```
+     // Controller: Only handles HTTP request/response
+public function store(UserRequest $request, UserService $service) {
+    $service->create($request->validated());
+}
+
+// UserService: Handles business logic
+class UserService {
+    public function create(array $data) {
+        $user = User::create($data);
+        // ...other business logic
+        return $user;
+    }
+}
+```
+
+2. O - Open/Closed Principle (OCP)
+   - Classes should be open for extension, but closed for modification.
+   - In Laravel: Use interfaces and dependency injection. For example, inject a repository interface into a service, so you can swap implementations without changing the service code.
+```
+<?php
+// Interface
+interface PaymentGateway {
+    public function pay($amount);
+}
+
+// Implementation
+class StripePayment implements PaymentGateway {
+    public function pay($amount) { /* ... */ }
+}
+
+// Service Provider
+$this->app->bind(PaymentGateway::class, StripePayment::class);
+
+// Usage (Controller or Service)
+public function checkout(PaymentGateway $gateway) {
+    $gateway->pay(100);
+}
+```
+
+3. L – Liskov Substitution Principle (LSP)
+   - Subclasses should be substitutable for their base classes.
+   - In Laravel: When using inheritance (e.g., custom validation rules, policies), ensure child classes can replace parent classes without breaking functionality.
+```
+<?php
+abstract class Notification {
+    abstract public function send($message);
+}
+
+class EmailNotification extends Notification {
+    public function send($message) { /* ... */ }
+}
+
+class SmsNotification extends Notification {
+    public function send($message) { /* ... */ }
+}
+
+// Usage
+function notifyUser(Notification $notifier, $msg) {
+    $notifier->send($msg);
+}
+```
+Both EmailNotification and SmsNotification can be used interchangeably.
+
+4. I – Interface Segregation Principle (ISP)
+   - Don’t force classes to implement interfaces they don’t use.
+   - In Laravel: Split large interfaces into smaller, more specific ones. For example, use multiple contracts for different repository responsibilities.
+```
+<?php
+interface Workable {
+    public function work();
+}
+interface Eatable {
+    public function eat();
+}
+
+class Human implements Workable, Eatable {
+    public function work() { /* ... */ }
+    public function eat() { /* ... */ }
+}
+
+class Robot implements Workable {
+    public function work() { /* ... */ }
+}
+```
+
+5. D – Dependency Inversion Principle (DIP)
+- Depend on abstractions, not concretions.
+- In Laravel: Use interfaces and Laravel’s service container for dependency injection. Bind interfaces to implementations in service providers.
+```
+<?php
+interface Logger {
+    public function log($message);
+}
+
+class FileLogger implements Logger {
+    public function log($message) { /* ... */ }
+}
+
+// Service Provider
+$this->app->bind(Logger::class, FileLogger::class);
+
+// Usage
+class UserService {
+    protected $logger;
+    public function __construct(Logger $logger) {
+        $this->logger = $logger;
+    }
+    public function doSomething() {
+        $this->logger->log('Something happened');
+    }
+}
+```
+
