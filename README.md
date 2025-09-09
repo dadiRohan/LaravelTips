@@ -768,3 +768,91 @@ class UserService {
 }
 ```
 
+### Design Patterns 
+1. Singleton Pattern
+   - Used for classes that should have only one instance, like the Service Container and Config.
+   - The app() helper and the service container are singletons:
+```
+<?php
+$instance = app('SomeService');
+```
+
+2. Factory Pattern
+   - Used to create objects, especially for testing and seeding.
+   - Model Factories for generating test data:
+```
+<?php
+User::factory()->count(10)->create();
+```
+
+3. Repository Pattern
+   - Separates business logic from data access logic.
+```
+<?php
+interface UserRepositoryInterface {
+    public function find($id);
+}
+class EloquentUserRepository implements UserRepositoryInterface {
+    public function find($id) {
+        return User::find($id);
+    }
+}
+```
+
+4. Observer Pattern
+   - Allows you to listen for model events.
+```
+<?php
+class UserObserver {
+    public function created(User $user) {
+        // Send welcome email
+    }
+}
+User::observe(UserObserver::class);
+```
+
+5. Strategy Pattern
+   - Allows you to change the algorithm at runtime.
+   - Laravel’s notification system lets you choose different channels (mail, SMS, etc.) at runtime.
+
+6. Decorator Pattern
+   - Adds new functionality to objects dynamically.
+   - Middleware in Laravel acts as decorators for HTTP requests.
+  
+7. Facade Pattern
+   - Provides a static interface to classes in the service container.
+   - Cache::get('key') is a facade for the cache service.
+  
+8. Command Pattern
+   - Encapsulates a request as an object.
+   - Artisan commands and queued jobs:
+```
+<?php
+php artisan make:command SendEmails
+php artisan make:job ProcessPodcast
+```
+
+9. Adapter Pattern
+    - Allows classes with incompatible interfaces to work together.
+    - Laravel’s cache and queue drivers adapt different storage systems to a common interface.
+
+10. Template Method Pattern
+    - Defines the program skeleton in a method, deferring some steps to subclasses.
+    - Abstract classes like Illuminate\Console\Command let you define the handle() method.
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
