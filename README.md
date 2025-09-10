@@ -528,6 +528,7 @@ Eloquent ORM: Simplifies database operations.
 
 
 ### Array Sorting without predefine function
+1. Bubble Sort
 
 ```
 
@@ -538,20 +539,21 @@ Eloquent ORM: Simplifies database operations.
  * @param array $arr The array to sort
  * @return array The sorted array
  */
-function bubbleSortArray($arr) {
-    $n = count($arr);
-    for ($i = 0; $i < $n - 1; $i++) {
-        for ($j = 0; $j < $n - $i - 1; $j++) {
-            if ($arr[$j] > $arr[$j + 1]) {
-                $temp = $arr[$j];
-                $arr[$j] = $arr[$j + 1];
-                $arr[$j + 1] = $temp;
-            }
-        }
+function bubblesort($arr){
+  for($i=0;$i<count($arr);$i++){
+    for($j=0;$j<count($arr)-1;$j++){
+      if($arr[$j] > $arr[$j+1]){
+        $temp = $arr[$j];
+        $arr[$j] = $arr[$j+1];
+        $arr[$j+1] = $temp;
+      }
     }
-    return $arr;
+  }
+  return $arr;
 }
-
+```
+2 . Selection Sort
+```
 /**
  * Sorts an array using the Selection Sort algorithm.
  * Selection Sort repeatedly finds the minimum element from the unsorted part and puts it at the beginning.
@@ -559,22 +561,23 @@ function bubbleSortArray($arr) {
  * @param array $arr The array to sort
  * @return array The sorted array
  */
-function selectionSortArray($arr) {
-    $n = count($arr);
-    for ($i = 0; $i < $n - 1; $i++) {
-        $min_idx = $i;
-        for ($j = $i + 1; $j < $n; $j++) {
-            if ($arr[$j] < $arr[$min_idx]) {
-                $min_idx = $j;
-            }
-        }
-        $temp = $arr[$min_idx];
-        $arr[$min_idx] = $arr[$i];
-        $arr[$i] = $temp;
+function SelectionSort($arr){
+  for($i=0;$i<count($arr) - 1;$i++){
+    $min = $i;
+    for($j= $i+1 ; $j<count($arr);$j++){
+      if($arr[$j] < $arr[$min]){
+        $min = $j;
+      }
     }
-    return $arr;
+    $temp = $arr[$min];
+    $arr[$min] = $arr[$i];
+    $arr[$i] = $temp;
+  }
+  return $arr;
 }
-
+```
+3. Insertion Sort
+```
 /**
  * Sorts an array using the Insertion Sort algorithm.
  * Insertion Sort builds the sorted array one item at a time by comparing each new element to those already sorted.
@@ -582,20 +585,19 @@ function selectionSortArray($arr) {
  * @param array $arr The array to sort
  * @return array The sorted array
  */
-function insertionSortArray($arr) {
-    $n = count($arr);
-    for ($i = 1; $i < $n; $i++) {
-        $key = $arr[$i];
-        $j = $i - 1;
-        while ($j >= 0 && $arr[$j] > $key) {
-            $arr[$j + 1] = $arr[$j];
-            $j--;
-        }
-        $arr[$j + 1] = $key;
+function insertionsort($arr){
+  for($i = 1; $i < count($arr);$i++){
+    $key = $arr[$i];
+    for($j = $i - 1; $j >= 0 && $arr[$j] > $key ; $j--){
+      $arr[$j+1] = $arr[$j];
     }
-    return $arr;
+    $arr[$j+1] = $key;
+  }
+  return $arr;
 }
-
+```
+4. Merge Sort
+```
 /**
  * Sorts an array using the Merge Sort algorithm.
  * Merge Sort divides the array into halves, sorts each half, and merges them back together.
@@ -624,6 +626,10 @@ function mergeArrays($left, $right) {
     }
     return array_merge($result, $left, $right);
 }
+
+```
+5. Quick Sort
+```
 
 /**
  * Sorts an array using the Quick Sort algorithm.
