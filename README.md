@@ -528,17 +528,10 @@ Eloquent ORM: Simplifies database operations.
 
 
 ### Array Sorting without predefine function
-1. Bubble Sort
+1. Bubble Sort : Bubble the largest value to the end
 
 ```
 
-/**
- * Sorts an array using the Bubble Sort algorithm.
- * Bubble Sort repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
- *
- * @param array $arr The array to sort
- * @return array The sorted array
- */
 function bubblesort($arr){
   for($i=0;$i<count($arr);$i++){
     for($j=0;$j<count($arr)-1;$j++){
@@ -552,15 +545,8 @@ function bubblesort($arr){
   return $arr;
 }
 ```
-2 . Selection Sort
+2 . Selection Sort : find the min value and swap it with the first value
 ```
-/**
- * Sorts an array using the Selection Sort algorithm.
- * Selection Sort repeatedly finds the minimum element from the unsorted part and puts it at the beginning.
- *
- * @param array $arr The array to sort
- * @return array The sorted array
- */
 function SelectionSort($arr){
   for($i=0;$i<count($arr) - 1;$i++){
     $min = $i;
@@ -576,15 +562,8 @@ function SelectionSort($arr){
   return $arr;
 }
 ```
-3. Insertion Sort
+3. Insertion Sort : take one element and place it in the correct position
 ```
-/**
- * Sorts an array using the Insertion Sort algorithm.
- * Insertion Sort builds the sorted array one item at a time by comparing each new element to those already sorted.
- *
- * @param array $arr The array to sort
- * @return array The sorted array
- */
 function insertionsort($arr){
   for($i = 1; $i < count($arr);$i++){
     $key = $arr[$i];
@@ -596,15 +575,8 @@ function insertionsort($arr){
   return $arr;
 }
 ```
-4. Merge Sort
+4. Merge Sort : divide and conquer
 ```
-/**
- * Sorts an array using the Merge Sort algorithm.
- * Merge Sort divides the array into halves, sorts each half, and merges them back together.
- *
- * @param array $arr The array to sort
- * @return array The sorted array
- */
 function mergeSortArray($arr) {
     if (count($arr) <= 1) return $arr;
     $mid = count($arr) / 2;
@@ -628,16 +600,8 @@ function mergeArrays($left, $right) {
 }
 
 ```
-5. Quick Sort
+5. Quick Sort : pick a pivot and partition the array around the pivot
 ```
-
-/**
- * Sorts an array using the Quick Sort algorithm.
- * Quick Sort picks a pivot and partitions the array into elements less than and greater than the pivot, then sorts recursively.
- *
- * @param array $arr The array to sort
- * @return array The sorted array
- */
 function quickSortArray($arr) {
     if (count($arr) < 2) return $arr;
     $left = $right = [];
